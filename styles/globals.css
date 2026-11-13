@@ -1,0 +1,52 @@
+@import "tailwindcss";
+@import "@heroui/styles";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+	--font-sans: var(--font-sans), sans-serif;
+	--font-mono: var(--font-mono), monospace;
+	--font-display: var(--font-display), "Arial Narrow", sans-serif;
+
+	/* Ziks palette (mirrors doviz_mobile_app/lib/app/constants/app_colors.dart) */
+	--color-ziks-primary: #701d30;
+	--color-ziks-primary-light: #8a2b41;
+	--color-ziks-primary-dark: #5a1726;
+	--color-ziks-pink: #e4b4c0;
+	--color-ziks-pink-light: #f2d9df;
+	--color-ziks-pink-dark: #b87a8a;
+	--color-ziks-tint: #fbf0f2;
+	--color-ziks-background: #faf7f8;
+	--color-ziks-fill: #f5f2f3;
+	--color-ziks-border: #e8dfe2;
+	--color-ziks-text: #2e2a2c;
+	--color-ziks-text-secondary: #756f71;
+	--color-ziks-text-tertiary: #a19a9c;
+	--color-ziks-success: #1e8e5a;
+}
+
+/* Fixed navbar: smooth in-page anchor jumps that stop below the 72px scrolled bar */
+html {
+	scroll-behavior: smooth;
+	scroll-padding-top: 80px;
+}
+
+/* Never scroll sideways. `clip` (not `hidden`) so no scroll container is
+   created and the pinned story section's position: sticky keeps working. */
+html,
+body {
+	overflow-x: clip;
+}
+
+/* Hide the page scrollbar on large screens. The page loops infinitely, so
+   the scrollbar thumb would leap from the bottom to the top at every wrap.
+   Scrolling (wheel, trackpad, keys) still works as normal. */
+@media (min-width: 1024px) {
+	html {
+		scrollbar-width: none;
+	}
+
+	html::-webkit-scrollbar {
+		display: none;
+	}
+}
