@@ -5,31 +5,50 @@ import clsx from "clsx";
 import { Providers } from "./providers";
 
 import { fontDisplay, fontSans } from "@/config/fonts";
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://ziks.com";
-const TITLE = "Ziks: Naira, crypto and bills. One app.";
-const DESCRIPTION =
-  "Top up from any bank, send to any Ziktag free and instantly, swap crypto for naira and pay airtime, data, electricity and cable TV, all from one naira balance.";
+import {
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_TAGLINE,
+  SITE_TITLE,
+  SITE_URL,
+} from "@/config/seo";
 
 export const metadata: Metadata = {
-  // Needed so the generated share image (app/opengraph-image.tsx) gets an absolute URL
+  // Needed so the share image (app/opengraph-image.jpg) gets an absolute URL
   metadataBase: new URL(SITE_URL),
-  title: TITLE,
-  description: DESCRIPTION,
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
+  applicationName: SITE_NAME,
+  category: "finance",
+  // One URL for the page, whatever query strings or trailing slashes link to it
+  alternates: { canonical: "/" },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  // Stop iOS turning naira amounts and account numbers into phone links
+  formatDetection: { telephone: false },
   openGraph: {
     type: "website",
-    siteName: "Ziks",
+    siteName: SITE_NAME,
     url: "/",
-    title: TITLE,
-    description: DESCRIPTION,
+    title: `${SITE_NAME}: ${SITE_TAGLINE}`,
+    description: SITE_DESCRIPTION,
     locale: "en_NG",
   },
   twitter: {
     card: "summary_large_image",
     site: "@ziks",
     creator: "@ziks",
-    title: TITLE,
-    description: DESCRIPTION,
+    title: `${SITE_NAME}: ${SITE_TAGLINE}`,
+    description: SITE_DESCRIPTION,
   },
   icons: {
     icon: [
@@ -45,7 +64,7 @@ export const viewport: Viewport = {
 };
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
-  <html suppressHydrationWarning lang="en">
+  <html suppressHydrationWarning lang="en-NG">
     <head />
     <body
       className={clsx("antialiased", fontSans.variable, fontDisplay.variable)}

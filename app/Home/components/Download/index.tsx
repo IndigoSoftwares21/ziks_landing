@@ -7,8 +7,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import CloudSky from "@/app/Home/components/Hero/CloudSky";
 import { SCENES } from "@/app/Home/components/Story/scenes";
 import { ScreenPhone } from "@/app/Home/components/Story/ui";
-
-const EMAIL = "hello@ziks.com"; // TODO: confirm real support address
+import { SUPPORT_EMAIL as EMAIL } from "@/config/seo";
 
 const STORES = [
   {
@@ -108,6 +107,9 @@ const Download = () => {
               {scene.label}
             </Link>
           ))}
+          <Link className="transition hover:text-white" href="#faq">
+            FAQ
+          </Link>
           <Link
             className="transition hover:text-white"
             href={`mailto:${EMAIL}`}
