@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 import { SITE_URL } from "@/config/seo";
 
-/** One page today; add new routes here as the site grows. */
+/** Add new routes here as the site grows. */
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
@@ -10,6 +10,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 1,
+    },
+    {
+      url: `${SITE_URL}/terms`,
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
+    {
+      url: `${SITE_URL}/privacy`,
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.3,
     },
   ];
 }

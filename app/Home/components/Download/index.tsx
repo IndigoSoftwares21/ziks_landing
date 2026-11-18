@@ -116,6 +116,12 @@ const Download = () => {
           >
             Contact
           </Link>
+          <Link className="transition hover:text-white" href="/terms">
+            Terms
+          </Link>
+          <Link className="transition hover:text-white" href="/privacy">
+            Privacy
+          </Link>
         </nav>
         <span>© {new Date().getFullYear()} Ziks · Available in Nigeria</span>
       </div>

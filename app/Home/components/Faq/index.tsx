@@ -22,7 +22,8 @@ const Faq = () => (
 
       <div className="mt-14 divide-y divide-[#E8DFE2] border-y border-[#E8DFE2]">
         {FAQS.map((faq) => (
-          <details key={faq.question} className="group py-6">
+          // Shared name = exclusive accordion: opening one closes the others
+          <details key={faq.question} className="group py-6" name="faq">
             <summary className="flex cursor-pointer list-none items-center justify-between gap-6 text-left text-lg font-semibold text-[#241C1E] marker:hidden md:text-xl [&::-webkit-details-marker]:hidden">
               <h3>{faq.question}</h3>
               <span

@@ -25,6 +25,9 @@ export const SITE_DESCRIPTION =
 /** Short tagline for social cards and the app manifest. */
 export const SITE_TAGLINE = "Naira, crypto and bills. One app.";
 
+/** Legal entity that operates Ziks (Terms, Privacy Policy, footer). */
+export const COMPANY_NAME = "FUFU SOFTWARES LIMITED";
+
 export const SUPPORT_EMAIL = "hello@ziks.app"; // TODO: confirm this inbox exists
 
 export type Faq = { question: string; answer: string };
